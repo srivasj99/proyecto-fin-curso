@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="contacto">
+        <h3 class="centrar-texto">Contacto</h3>
+        <div class="contacto-bg"></div>
+
+        {{ form_start(form_contacto, {"attr":{"class": "formulario"}}) }}
+        <div class="campo">
+            <label class="campo__label" for="mensaje_contacto">Mensaje:</label>
+            {{ form_widget (form_contacto.descripcion, {"id": "mensaje_contacto","attr":{"class": "campo__field campo__field--textarea"}}) }}
+        </div>
+        <div class="campo">
+            {{ form_widget(form_contacto.enviar, {"id": "enviar_contacto","attr":{"class": "boton boton--primario"}}) }}
+        </div>
+        {{ form_end(form_contacto) }}
+    </main>
+{% endblock %}
