@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Fiestas{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -14,6 +14,29 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header class="header">
+            <div class="contenedor-header">
+                <div class="contenedor">
+                    <div class="barra">
+                        <a href="index.html" class="logo"><h1 class="logo__nombre no-margin centrar-texto">Fes<span class="logo__bold">tivales</span></h1></a>
+
+                        <nav class="navegacion">
+                            <a href="contacto.html" class="navegacion__enlace">Iniciar Sesión</a>
+                            <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="header__texto">
+                    <h2 class="no-margin">Los mejores festivales de tu vida</h2>
+                    <p class="no-margin">Inscribete y pasatelo bien</p>
+                </div>
+            </div>
+        </header>
+        <div class="contenedor contenido-principal">
+            <main class="festivales">
+                {% block body %}{% endblock %}
+            </main>
+        <div>
     </body>
 </html>
