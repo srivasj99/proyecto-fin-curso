@@ -5,6 +5,7 @@
     --blanco: #ffffff;
     --negro: #000000;
     --gris: #E1E1E1;
+    --primario: #57017e;
 }
 html{
     box-sizing: border-box;
@@ -91,9 +92,13 @@ img{
 }
 
 .boton--primario{
-    background-color: var(--negro);
+    background-color: var(--primario);
 }
 
+.boton--primario:hover{
+    background-color: #860abe;
+    transition: all ease 0.3s;
+}
 
 /** Header **/
 .header{
