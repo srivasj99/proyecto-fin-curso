@@ -11,3 +11,4 @@ import './styles/normalize.css';
 
 // start the Stimulus application
 import './bootstrap';
+import './validacion-registro';

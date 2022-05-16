@@ -84,7 +84,7 @@ img{
 @media (min-width: 768px) {
     .boton{
         display: inline-block;
-    }    
+    }
 }
 
 .boton:hover{
@@ -200,3 +200,24 @@ img{
 .campo__field--textarea{
     height: 20rem;
 }
+
+.campo__field--checkbox:checked{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--primario);
+}
+
+.obligatorio{
+    color: red;
+}
+
+.texto-obligatorio{
+    font-size: 1.5rem;
+    display: none;
+}
+#cruz, #tick, #preloader{
+    height: 2rem;
+    display: none;
+    vertical-align: middle;
+}
+/** Footer **/

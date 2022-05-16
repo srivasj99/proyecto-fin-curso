@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registrarse{% endblock %}
+
+{% block body %}
+    <main class="registro">
+        <h3 class="centrar-texto">Registro</h3>
+        <div class="contacto-bg"></div>
+        
+        {{ form_start(registrationForm,{"id": "formularioReg","attr":{"class": "formulario"}}) }}
+        <div class="campo">
+            <label class="campo__label" for="nombre_usuario">Nombre de usuario:<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.nombre_usuario, {"id": "nombre_usuario", "attr":{"placeholder": "Nombre de usuario","class": "campo__field oblig"}}) }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio</p>
+            <img src="{{ asset("img/preloader.gif") }}" id="preloader">
+            <img src="{{ asset("img/cruz.png") }}" id="tick">
+            <img src="{{ asset("img/tick.png") }}" id="cruz">
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="nombre">Nombre:<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.nombre, {"id": "nombre", "attr":{"placeholder": "Nombre","class": "campo__field oblig"}}) }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio</p>
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="apellidos">Apellidos:<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.apellidos, {"id": "apellidos", "attr":{"placeholder": "Apellidos","class": "campo__field oblig"}}) }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio</p>
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="telefono">Teléfono:<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.telefono, {"id": "telefono", "attr":{"placeholder": "Teléfono","class": "campo__field oblig"}}) }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio</p>
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="">Fecha de Nacimiento:<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.fecha_nacimiento) }}
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="email">Email:<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.email, {"id": "email", "attr":{"placeholder": "Email","class": "campo__field oblig"}}) }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio</p>
+            <img src="{{ asset("img/preloader.gif") }}" id="preloader">
+            <img src="{{ asset("img/cruz.png") }}" id="tick">
+            <img src="{{ asset("img/tick.png") }}" id="cruz">
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="contrasena">Contraseña:<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.plainPassword, {"id": "contrasena", "attr":{"placeholder": "Contraseña","class": "campo__field oblig"}}) }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio y debe tener 6 caracteres como minimo</p>
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="foto">Imagen:</label>
+            {{ form_widget(registrationForm.imagen, {"id": "foto", "attr":{"placeholder": "Foto","class": "campo__field oblig"}}) }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio</p>
+        </div>
+        <div class="campo">
+            <label class="campo__label" for="acepto_condiciones">Acepto las condiones<span class="obligatorio">*<span></label>
+            {{ form_widget(registrationForm.agreeTerms, {"id": "acepto_condiciones", "attr":{"class": "campo__field--checkbox"}})  }}
+            <p class="obligatorio texto-obligatorio">Este campo es obligatorio</p>
+        </div>
+        <div class="campo">
+            <button type="submit" class="boton boton--primario" id="btn-registrar">Registrarse</button>
+        </div>
+        {{ form_end(registrationForm) }}
+    </main>
+{% endblock %}

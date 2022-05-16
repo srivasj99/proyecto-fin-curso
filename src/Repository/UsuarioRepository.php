@@ -92,4 +92,22 @@ class UsuarioRepository extends ServiceEntityRepository implements PasswordUpgra
         ;
     }
     */
+    
+    public function findUsuario($usuario){
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.nombreUsuario = :usuario')
+            ->setParameter('usuario', $usuario)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
+    public function findEmail($email){
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.email = :email')
+            ->setParameter('email', $email)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
