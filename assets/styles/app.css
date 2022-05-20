@@ -181,7 +181,8 @@ img{
     padding: 5rem;
 }
 
-.campo{
+.campo,
+#registration_form_fecha_nacimiento{
     display: flex;
     margin: 2rem;
     gap: 2rem;
@@ -192,7 +193,10 @@ img{
     text-align: right;
 }
 
-.campo__field{
+.campo__field,
+#registration_form_fecha_nacimiento_day,
+#registration_form_fecha_nacimiento_month,
+#registration_form_fecha_nacimiento_year{
     flex: 1;
     border: 1px solid var(--gris);
 }
@@ -207,6 +211,15 @@ img{
     background-color: var(--primario);
 }
 
+.campo__errores{
+    display: flex;
+    margin: 2rem;
+    flex-direction: column;
+    background-color: #FF4D4D;
+    border-radius: 1rem;
+    
+}
+
 .obligatorio{
     color: red;
 }
@@ -219,5 +232,10 @@ img{
     height: 2rem;
     display: none;
     vertical-align: middle;
+}
+
+li{
+    color: #ffffff;
+    font-size: 1.5rem;
 }
 /** Footer **/

@@ -22,6 +22,7 @@ class RegistrationController extends AbstractController {
         $user = new Usuario();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+        $errors = "";
 
         if ($form->isSubmitted() && $form->isValid()) {
             $brochureFile = $form->get('imagen')->getData();
@@ -61,9 +62,9 @@ class RegistrationController extends AbstractController {
 
             return $this->redirectToRoute('index');
         }
-
+        ;
         return $this->render('registration/register.html.twig', [
-                    'registrationForm' => $form->createView(),
+                    'registrationForm' => $form->createView()
         ]);
     }
 

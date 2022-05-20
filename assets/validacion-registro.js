@@ -14,11 +14,9 @@ $(document).ready(() => {
                     if (data.resultado) {
                         $("#nombre_usuario").css('border', 'red 2px solid');
                         $("#tick").css('display', 'inline');
-                        $("#btn-registrar").hide();
                     } else {
                         $("#nombre_usuario").css('border', 'green 2px solid');
                         $("#cruz").css('display', 'inline');
-                        $("#btn-registrar").show();
                     }
                 },
 
@@ -50,11 +48,9 @@ $(document).ready(() => {
                     if (data.resultado) {
                         $("#email").css('border', 'red 2px solid');
                         $("#email").siblings("#tick").css('display', 'inline');
-                        $("#btn-registrar").hide();
                     } else {
                         $("#email").css('border', 'green 2px solid');
                         $("#email").siblings("#cruz").css('display', 'inline');
-                        $("#btn-registrar").show();
                     }
                 },
                 dataType: "json",

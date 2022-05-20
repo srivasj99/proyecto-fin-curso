@@ -8,6 +8,15 @@
         <div class="contacto-bg"></div>
         
         {{ form_start(registrationForm,{"id": "formularioReg","attr":{"class": "formulario"}}) }}
+        <div class="campo__errores">
+            {{ form_errors(registrationForm)}}
+            {{ form_errors(registrationForm.email)}}
+            {{ form_errors(registrationForm.plainPassword)}}
+            {{ form_errors(registrationForm.nombre)}}
+            {{ form_errors(registrationForm.apellidos)}}
+            {{ form_errors(registrationForm.agreeTerms)}}
+            {{ form_errors(registrationForm.telefono)}}
+        </div>
         <div class="campo">
             <label class="campo__label" for="nombre_usuario">Nombre de usuario:<span class="obligatorio">*<span></label>
             {{ form_widget(registrationForm.nombre_usuario, {"id": "nombre_usuario", "attr":{"placeholder": "Nombre de usuario","class": "campo__field oblig"}}) }}
