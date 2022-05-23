@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <main class="logueo">
+        <h3 class="centrar-texto">Login</h3>
+        <div class="contacto-bg"></div>
+        <form action="{{ path('login') }}" method="post" class="formulario">
+            {% if error %}
+                <div class="campo__errores">
+                    <span class="error_login">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                </div>
+            {% endif %}
+            <div class="campo">
+                <label for="username" class="campo__label">Email:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" class="campo__field" placeholder="Email"/>
+            </div>
+            <div class="campo">
+                <label for="password" class="campo__label">Contraseña:</label>
+                <input type="password" id="password" name="_password" class="campo__field" placeholder="Contraseña"/>
+            </div>
+            {# If you want to control the URL the user is redirected to on success
+            <input type="hidden" name="_target_path" value="/account"/> #}
+            <div class="campo">
+                <label class="campo__label" for="recordarme">Recordarme</label>
+                <input type="checkbox" name="_remember_me" class="campo__field--checkbox" id="recordarme"/>
+            </div>
+            
+            <div class="campo">
+                <button type="submit" class="boton boton--primario">Login</button>
+                <p>No tienes cuenta? <a href="{{ path("registro") }}">Registrate</a><p>
+            </div>
+        </form>
+    </main>
+{% endblock %}

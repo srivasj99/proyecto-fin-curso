@@ -1,241 +1,259 @@
 :root{
-    --fuenteHeading: 'PT Sans', sans-serif;
-    --fuenteParrafos: 'Open Sans', sans-serif;
+    --fuenteHeading: 'PT Sans', sans-serif!important;
+    --fuenteParrafos: 'Open Sans', sans-serif!important;
 
-    --blanco: #ffffff;
-    --negro: #000000;
-    --gris: #E1E1E1;
-    --primario: #57017e;
+    --blanco: #ffffff!important;
+    --negro: #000000!important;
+    --gris: #E1E1E1!important;
+    --primario: #57017e!important;
 }
 html{
-    box-sizing: border-box;
-    font-size: 62.5%; /* 1 rem = 10px */
+    box-sizing: border-box!important;
+    font-size: 62.5%!important; /* 1 rem = 10px */
 }
 
 *, *:before, *:after{
-    box-sizing: inherit;
+    box-sizing: inherit!important;
 }
 
 body{
-    font-family: var(--fuenteParrafos);
-    font-size: 1.6rem;
-    line-height: 2;
+    font-family: var(--fuenteParrafos)!important;
+    font-size: 1.6rem!important;
+    line-height: 2!important;
 }
 
 /** Globales **/
 .contenedor{
     /*max-width: 120rem;
     width: 90%;*/
-    width: min(90%, 120rem); /*Nuevo*/
-    margin: 0 auto;
+    width: min(90%, 120rem)!important; /*Nuevo*/
+    margin: 0 auto!important;
 }
 
 a{
-    text-decoration: none;
+    text-decoration: none!important;
 }
 
 h1,h2,h3,h4{
-    font-family: var(--fuenteHeading);
-    line-height: 1.2;
+    font-family: var(--fuenteHeading)!important;
+    line-height: 1.2!important;
 }
 h1{
-    font-size: 4.8rem;
+    font-size: 4.8rem!important;
 }
 
 h2{
-    font-size: 4rem;
+    font-size: 4rem!important;
 }
 h3{
-    font-size: 3.2rem;
+    font-size: 3.2rem!important;
 }
 h4{
-    font-size: 2.8rem;
+    font-size: 2.8rem!important;
 }
 img{
-    max-width: 100%;
+    max-width: 100%!important;
 }
 /** Utilidades **/
 .no-margin{
-    margin: 0;
+    margin: 0!important;
 }
 
 .no-padding{
-    padding: 0;
+    padding: 0!important;
 }
 .centrar-texto{
-    text-align: center;
+    text-align: center!important;
 }
 
 /** Botones **/
 
 .boton{
-    display: block;
-    font-family: var(--fuenteHeading);
-    color: var(--blanco);
-    text-align: center;
-    padding: 1rem 3rem;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    border: none;
+    display: block!important;
+    font-family: var(--fuenteHeading)!important;
+    color: var(--blanco)!important;
+    text-align: center!important;
+    padding: 1rem 3rem!important;
+    font-size: 1.8rem!important;
+    text-transform: uppercase!important;
+    font-weight: 700!important;
+    margin-bottom: 2rem!important;
+    border: none!important;
 }
 
 @media (min-width: 768px) {
     .boton{
-        display: inline-block;
+        display: inline-block!important;
     }
 }
 
 .boton:hover{
-    cursor: pointer;
+    cursor: pointer!important;
 }
 
 .boton--primario{
-    background-color: var(--primario);
+    background-color: var(--primario)!important;
 }
 
 .boton--primario:hover{
-    background-color: #860abe;
-    transition: all ease 0.3s;
+    background-color: #860abe!important;
+    transition: all ease 0.3s!important;
 }
 
 /** Header **/
 .header{
-    background-image: url(../img/banner.jpg);
+    background-image: url(../img/banner.jpg)!important;
 }
 
 .header{
-    height: 60rem;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    height: 60rem!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+    background-position: center center!important;
 }
 .contenedor-header{
-    height: 60rem;
-    background: rgba(0,0,0, 0.8);
+    height: 60rem!important;
+    background: rgba(0,0,0, 0.8)!important;
 }
 .header__texto{
-    text-align: center;
-    color: var(--blanco);
-    margin-top: 5rem;
+    text-align: center!important;
+    color: var(--blanco)!important;
+    margin-top: 5rem!important;
 }
 
 @media (min-width: 768px) {
     .header__texto{
-        margin-top: 20rem;
+        margin-top: 20rem!important;
     }
 }
 
 .barra{
-    padding-top: 4rem;
+    padding-top: 4rem!important;
 }
 
 @media (min-width: 768px) {
     .barra{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: flex!important;
+        justify-content: space-between!important;
+        align-items: center!important;
     }
 }
 
 .logo{
-    color: var(--blanco);
+    color: var(--blanco)!important;
 }
 
 .logo__nombre{
-    font-weight: 400;
+    font-weight: 400!important;
 }
 
 .logo__bold{
-    font-weight: 700;
+    font-weight: 700!important;
 }
 
 @media (min-width: 768px) {
     .navegacion{
-        display: flex;
-        gap: 2rem;
+        display: flex!important;
+        gap: 2rem!important;
     }
 }
 
 .navegacion__enlace{
-    display: block;
-    text-align: center;
-    font-size: 1.8rem;
-    color: var(--blanco);
+    display: block!important;
+    text-align: center!important;
+    font-size: 1.8rem!important;
+    color: var(--blanco)!important;
+}
+
+.navegacion__enlaceBootstrap{
+    font-size: 1.8rem!important;
+}
+
+.img_usuario{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
 }
 
 /*Contacto*/
 
 .contacto-bg{
-    background-image: url(../img/contacto.jpg);
-    height: 40rem;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url(../img/contacto.jpg)!important;
+    height: 40rem!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
 }
 
 .formulario{
-    background-color: var(--blanco);
-    margin: -5rem auto 0 auto;
-    width: 95%;
-    padding: 5rem;
+    background-color: var(--blanco)!important;
+    margin: -5rem auto 0 auto!important;
+    width: 95%!important;
+    padding: 5rem!important;
 }
 
 .campo,
 #registration_form_fecha_nacimiento{
-    display: flex;
-    margin: 2rem;
-    gap: 2rem;
+    display: flex!important;
+    margin: 2rem!important;
+    gap: 2rem!important;
 }
 
 .campo__label{
-    flex: 0 0 9rem;
-    text-align: right;
+    flex: 0 0 9rem!important;
+    text-align: right!important;
 }
 
 .campo__field,
 #registration_form_fecha_nacimiento_day,
 #registration_form_fecha_nacimiento_month,
 #registration_form_fecha_nacimiento_year{
-    flex: 1;
-    border: 1px solid var(--gris);
+    flex: 1!important;
+    border: 1px solid var(--gris)!important;
 }
 
 .campo__field--textarea{
-    height: 20rem;
+    height: 20rem!important;
+}
+
+.campo__field--checkbox{
+    height: 2.5rem!important;
+    width: 2.5rem!important;
 }
 
 .campo__field--checkbox:checked{
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: var(--primario);
+    background-color: var(--primario)!important;
+    color: var(--blanco)!important;
 }
 
 .campo__errores{
-    display: flex;
-    margin: 2rem;
-    flex-direction: column;
-    background-color: #FF4D4D;
-    border-radius: 1rem;
+    display: flex!important;
+    margin: 2rem!important;
+    flex-direction: column!important;
+    background-color: #FF4D4D!important;
+    border-radius: 1rem!important;
     
 }
 
 .obligatorio{
-    color: red;
+    color: red!important;
 }
 
 .texto-obligatorio{
-    font-size: 1.5rem;
-    display: none;
+    font-size: 1.5rem!important;
+    display: none!important;
 }
 #cruz, #tick, #preloader{
-    height: 2rem;
-    display: none;
-    vertical-align: middle;
+    height: 2rem!important;
+    display: none!important;
+    vertical-align: middle!important;
 }
 
 li{
-    color: #ffffff;
-    font-size: 1.5rem;
+    color: #ffffff!important;
+    font-size: 1.5rem!important;
+}
+.error_login{
+    color: #ffffff!important;
+    font-size: 1.5rem!important;
 }
 /** Footer **/
