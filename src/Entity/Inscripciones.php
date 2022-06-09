@@ -14,11 +14,11 @@ class Inscripciones
     private $id;
 
     #[ORM\ManyToOne(targetEntity: Usuario::class, inversedBy: 'inscripciones')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, unique: false)]
     private $usuario;
 
     #[ORM\ManyToOne(targetEntity: Fiestas::class, inversedBy: 'inscripciones')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, unique: false)]
     private $fiestas;
 
     public function getId(): ?int

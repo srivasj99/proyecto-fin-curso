@@ -17,7 +17,7 @@ class Contacto
     private $descripcion;
 
     #[ORM\ManyToOne(targetEntity: usuario::class, inversedBy: 'contactos')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, unique: false)]
     private $usuario;
 
     public function getId(): ?int

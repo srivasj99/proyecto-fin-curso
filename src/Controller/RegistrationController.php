@@ -84,7 +84,7 @@ class RegistrationController extends AbstractController {
             
             return new JsonResponse($respuesta);
         } else {
-            throw new Exception(message: 'Error en la respuesta');
+            return $this->redirectToRoute('registro');
         }
     }
     
@@ -104,7 +104,7 @@ class RegistrationController extends AbstractController {
             
             return new JsonResponse($respuesta);
         } else {
-            throw new Exception(message: 'Error en la respuesta');
+            return $this->redirectToRoute('registro');
         }
     }
 

@@ -10,5 +10,7 @@ import './styles/app.css';
 import './styles/normalize.css';
 
 // start the Stimulus application
+
 import './bootstrap';
 import './validacion-registro';
+import './modal';

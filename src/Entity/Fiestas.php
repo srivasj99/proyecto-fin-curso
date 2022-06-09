@@ -18,8 +18,8 @@ class Fiestas
     #[ORM\Column(type: 'string', length: 255)]
     private $nombre;
 
-    #[ORM\Column(type: 'integer')]
-    private $edad;
+    /*#[ORM\Column(type: 'integer')]
+    private $edad;*/
 
     #[ORM\OneToMany(mappedBy: 'fiestas', targetEntity: Inscripciones::class)]
     private $inscripciones;
@@ -49,7 +49,7 @@ class Fiestas
         return $this;
     }
 
-    public function getEdad(): ?int
+    /**public function getEdad(): ?int
     {
         return $this->edad;
     }
@@ -59,7 +59,7 @@ class Fiestas
         $this->edad = $edad;
 
         return $this;
-    }
+    }*/
 
     /**
      * @return Collection<int, Inscripciones>

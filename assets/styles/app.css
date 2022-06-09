@@ -6,10 +6,12 @@
     --negro: #000000!important;
     --gris: #E1E1E1!important;
     --primario: #57017e!important;
+    --anadir: #1878FD;
 }
 html{
     box-sizing: border-box!important;
     font-size: 62.5%!important; /* 1 rem = 10px */
+    
 }
 
 *, *:before, *:after{
@@ -47,6 +49,8 @@ h2{
 }
 h3{
     font-size: 3.2rem!important;
+    margin: 32px 0px!important;
+    font-weight: 700!important;
 }
 h4{
     font-size: 2.8rem!important;
@@ -93,6 +97,15 @@ img{
 
 .boton--primario{
     background-color: var(--primario)!important;
+}
+.boton--anadir{
+    padding: 0.5rem 1.5rem!important;
+    background-color: var(--anadir)!important;
+}
+
+.boton--anadir:hover{
+    background-color: #0054FF!important;
+    transition: all ease 0.3s!important;
 }
 
 .boton--primario:hover{
@@ -185,67 +198,67 @@ img{
 }
 
 .formulario{
-    background-color: var(--blanco)!important;
-    margin: -5rem auto 0 auto!important;
-    width: 95%!important;
-    padding: 5rem!important;
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
 }
 
 .campo,
 #registration_form_fecha_nacimiento{
-    display: flex!important;
-    margin: 2rem!important;
-    gap: 2rem!important;
+    display: flex;
+    margin: 2rem;
+    gap: 2rem;
 }
 
 .campo__label{
-    flex: 0 0 9rem!important;
-    text-align: right!important;
+    flex: 0 0 9rem;
+    text-align: right;
 }
 
 .campo__field,
 #registration_form_fecha_nacimiento_day,
 #registration_form_fecha_nacimiento_month,
 #registration_form_fecha_nacimiento_year{
-    flex: 1!important;
-    border: 1px solid var(--gris)!important;
+    flex: 1;
+    border: 1px solid var(--gris);
 }
 
 .campo__field--textarea{
-    height: 20rem!important;
+    height: 20rem;
 }
 
 .campo__field--checkbox{
-    height: 2.5rem!important;
-    width: 2.5rem!important;
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 .campo__field--checkbox:checked{
-    background-color: var(--primario)!important;
-    color: var(--blanco)!important;
+    background-color: var(--primario);
+    color: var(--blanco);
 }
 
 .campo__errores{
-    display: flex!important;
-    margin: 2rem!important;
-    flex-direction: column!important;
-    background-color: #FF4D4D!important;
-    border-radius: 1rem!important;
+    display: flex;
+    margin: 2rem;
+    flex-direction: column;
+    background-color: #FF4D4D;
+    border-radius: 1rem;
     
 }
 
 .obligatorio{
-    color: red!important;
+    color: red;
 }
 
 .texto-obligatorio{
-    font-size: 1.5rem!important;
-    display: none!important;
+    font-size: 1.5rem;
+    display: none;
 }
 #cruz, #tick, #preloader{
-    height: 2rem!important;
-    display: none!important;
-    vertical-align: middle!important;
+    height: 2rem;
+    display: none;
+    vertical-align: middle;
 }
 
 li{
@@ -253,7 +266,98 @@ li{
     font-size: 1.5rem!important;
 }
 .error_login{
-    color: #ffffff!important;
-    font-size: 1.5rem!important;
+    color: #ffffff;
+    font-size: 1.5rem;
 }
 /** Footer **/
+
+
+/** Gestion festivales **/
+.config_festivales{
+    margin: 0 1rem;
+    cursor: pointer;
+    color: black;
+}
+
+.config_festivales.openModalEditar:hover{
+    color: green;
+}
+
+.config_festivales.borrar:hover{
+    color: red;
+}
+
+/** MODAL **/
+.modal, .modalEditar{
+    position: fixed!important;
+    top: 0!important;
+    left: 0!important;
+    right: 0!important;
+    bottom: 0!important;
+    background-color: #111111bd!important;
+    display: flex!important;
+    opacity: 0!important;
+    pointer-events: none!important;
+    transition: opacity .6s .9s!important;
+    --transform: translateY(-100vh)!important;
+    --transition: transform .8s!important;
+}
+
+.modal__container{
+    margin: auto!important;
+    width: 90%!important;
+    max-width: 600px!important;
+    max-height: 90%!important;
+    background-color: #fff!important;
+    border-radius: .6rem!important;
+    padding: 3rem 2.5rem!important;
+    display: grid!important;
+    gap: 1rem!important;
+    place-items: center!important;
+    grid-auto-columns: 100%!important;
+    transform: var(--transform)!important;
+    transition: transform .3s!important;
+    transition: var(--transition)!important;
+}
+
+.modal__title{
+    font-size: 2.5rem!important;
+}
+
+.modal__paragraph{
+    margin-bottom: 1rem!important;
+}
+
+.modal__img{
+    width: 90%!important;
+    max-width: 300px!important;
+}
+
+.modal--show, .modal--show--editar{
+    opacity: 1!important;
+    pointer-events: unset!important;
+    transition: opacity .6s!important;
+    --transform: translateY(0vh)!important;
+    --transition: transform .8s .8s!important;
+}
+
+.modal__close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem 2rem 0 0;
+    font-size: 2.5rem;
+    color: #8F8F8F;
+    cursor: pointer;
+}
+.modal__close:hover{
+    color: #BD2A2A;
+    transition: all ease 0.3s!important;
+}
+
+#btn-añadir{
+    margin: 0 auto;
+}
+i{
+    pointer-events: none;
+}
