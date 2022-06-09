@@ -22,56 +22,12 @@ class GestionFestivalesController extends AbstractController {
      */
     public function index(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger): Response {
         $this->denyAccessUnlessGranted("ROLE_ADMIN");
-        /*         * INSERCCIÓN FESTIVALES * */
         $repositorioFestival = $doctrine->getRepository(Fiestas::class);
         $festival = $repositorioFestival->findAll();
-        /*         * $fiestas = new Fiestas();
-          $form = $this->createFormBuilder($fiestas)
-          ->add("Nombre", TextType::class)
-          ->add("Imagen", FileType::class)
-          ->getForm();
-          $form->handleRequest($request);
-          if ($form->isSubmitted() && $form->isValid()) {
-          // $form->getData() holds the submitted values
-          // but, the original `$task` variable has also been updated
-          $nombreFestival = $form->get("Nombre")->getData();
-          $brochureFile = $form->get('Imagen')->getData();
 
-          // this condition is needed because the 'brochure' field is not required
-          // so the PDF file must be processed only when a file is uploaded
-          if ($brochureFile) {
-          $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
-          // this is needed to safely include the file name as part of the URL
-          $safeFilename = $slugger->slug($originalFilename);
-          $newFilename = $safeFilename . '-' . uniqid() . '.' . $brochureFile->guessExtension();
-
-          // Move the file to the directory where brochures are stored
-          try {
-          $brochureFile->move(
-          $this->getParameter('brochures_directory'),
-          $newFilename
-          );
-          } catch (FileException $e) {
-          // ... handle exception if something happens during file upload
-          }
-
-          // updates the 'brochureFilename' property to store the PDF file name
-          // instead of its contents
-          $fiestas->setNombre($nombreFestival);
-          $fiestas->setImagen($newFilename);
-          $em = $doctrine->getManager();
-          $em->persist($fiestas);
-          $em->flush();
-          return $this->redirectToRoute('gestionFestivales');
-          }
-          }
-         * */
-
-        /** EDICIÓN FESTIVALES * */
         return $this->renderForm('gestion_festivales/index.html.twig', [
                     'controller_name' => 'GestionFestivalesController',
                     'festival' => $festival,
-                        //'form_festivales' => $form
         ]);
     }
 
@@ -103,6 +59,7 @@ class GestionFestivalesController extends AbstractController {
             $fiestas = new Fiestas();
             $nombreFestival = $request->get("nombreFestival");
             $brochureFile = $request->files->get("imagen");
+            $descripcion = $request->get("descripcionFestival");
             // this condition is needed because the 'brochure' field is not required
             // so the PDF file must be processed only when a file is uploaded
             if ($brochureFile) {
@@ -125,6 +82,7 @@ class GestionFestivalesController extends AbstractController {
                 // instead of its contents
                 $fiestas->setNombre($nombreFestival);
                 $fiestas->setImagen($newFilename);
+                $fiestas->setDescripcion($descripcion);
                 $em = $doctrine->getManager();
                 $em->persist($fiestas);
                 $em->flush();
@@ -151,6 +109,7 @@ class GestionFestivalesController extends AbstractController {
         if ($request->isXmlHttpRequest()) {
             $nombreFestival = $request->get("nombreFestivalEdit");
             $brochureFile = $request->files->get("imagenEdit");
+            $descripcion = $request->get("descripcionFestivalEdit");
             $id = $request->get("id");
             $fiestas = $em->getRepository(Fiestas::class)->find($id);
             // this condition is needed because the 'brochure' field is not required
@@ -175,8 +134,10 @@ class GestionFestivalesController extends AbstractController {
                 // instead of its contents
                 $fiestas->setNombre($nombreFestival);
                 $fiestas->setImagen($newFilename);
+                $fiestas->setDescripcion($descripcion);
             }
             $fiestas->setNombre($nombreFestival);
+            $fiestas->setDescripcion($descripcion);
             $em->persist($fiestas);
             $em->flush();
             $fiesta = $em->getRepository(Fiestas::class)->find($id);

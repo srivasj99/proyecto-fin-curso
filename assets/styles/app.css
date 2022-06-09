@@ -85,6 +85,14 @@ img{
     border: none!important;
 }
 
+.boton--ver--festival{
+    position: absolute;
+    bottom: 0;
+    padding: 1rem!important;
+    font-size: 1.8rem!important;
+    width: 90%;
+}
+
 @media (min-width: 768px) {
     .boton{
         display: inline-block!important;
@@ -369,6 +377,12 @@ i{
 }
 
 /** CONTENIDO FESTIVALES **/
-.contenedor--festivales{
-    margin-bottom: 1rem;
+.carta__img{
+    margin: 1rem auto;
+    width: 90%;
+}
+
+.card{
+    margin: 1rem auto;
+    height: 37rem;
 }

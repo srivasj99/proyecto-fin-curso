@@ -12,6 +12,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre festival</th>
+                        <th scope="col">Descripción</th>
                         <th scope="col">Imagen</th>
                         <th scope="col"><i class="fa-solid fa-gear"></i></th>
 
@@ -22,6 +23,7 @@
                     <tr id="{{f.id}}">
                         <th scope="row">{{ f.id }}</th>
                         <td class="nombreFest">{{ f.nombre }}</td>
+                        <td class="descFest">{{f.descripcion | length > 50 ? f.descripcion |slice(0, 50) ~ '...' : f.descripcion}}</td>
                         <td><img src="{{ asset('uploads/img/' ~ f.imagen) }}" alt="imagen festival" class="imgFest" width="50px" height="50px"></td>
                         <td><a class="config_festivales openModalEditar" data-id="{{ f.id }}"><i class="fa-solid fa-pencil"></i></a><a class="config_festivales borrar" data-id="{{ f.id }}"><i class="fa-solid fa-trash"></i></a></td>
                     </tr>
@@ -43,6 +45,10 @@
                 <label class="campo__label" for="nombreFestival">Nombre festival:</label>
                     <input type="text" id="nombreFestival" class="campo__field" name="nombreFestival" placeholder="Nombre festival">
                 </div>
+                <div class="campo">
+                     <label class="campo__label" for="descripcion">Descripción:</label>
+                    <textarea id="descripcionFestival" name="descripcionFestival" class="campo__field campo__field--textarea"></textarea>
+                </div>
                 <div class="campo">   
                 <label class="campo__label" for="imagenFestival">Imagen:</label>
                     <input type="file" id="imagenFestival" class="campo__field" name="imagenFestival">
@@ -61,6 +67,10 @@
                 <div class="campo">
                     <label class="campo__label" for="nombreFestival">Nombre festival:</label>
                     <input type="text" id="nombreFestivalEditar" class="campo__field" name="nombreFestivalEdit" placeholder="Nombre festival">
+                </div>
+                <div class="campo">
+                     <label class="campo__label" for="descripcion">Descripción:</label>
+                    <textarea id="descripcionFestivalEdit" name="descripcionFestivalEdit" class="campo__field campo__field--textarea"></textarea>
                 </div>
                 <div class="campo">   
                     <label class="campo__label" for="imagenFestival">Imagen:</label>

@@ -23,10 +23,12 @@ $(document).ready(() => {
         e.preventDefault();
         let fichero = $("#imagenFestival")[0].files[0];
         let nombreFestival = $("#nombreFestival").val();
+        let descripcion = $("#descripcionFestival").val();
         let datos = new FormData();
 
         datos.append('imagen', fichero);
         datos.append('nombreFestival', nombreFestival);
+        datos.append('descripcionFestival', descripcion);
         $.ajax({
             url: window.location.pathname + "/insertar",
             method: "POST",
@@ -40,6 +42,7 @@ $(document).ready(() => {
                         <tr id="${data[1].id}">
                             <th scope="row">${data[1].id}</th>
                             <td class="nombreFest">${data[1].nombre}</td>
+                            <td class="descFest">${data[1].descripcion}</td>
                             <td><img src="../uploads/img/${data[1].imagen}" alt="imagen festival" width="50px" height="50px" class="imgFest"></td>
                             <td><a class="config_festivales openModalEditar" data-id="${data[1].id}"><i class="fa-solid fa-pencil"></i></a><a class="config_festivales borrar" data-id="${data[1].id}"><i class="fa-solid fa-trash"></i></a></td>
                         </tr>`);
@@ -112,6 +115,7 @@ $(document).ready(() => {
                 success: function (data) {
                     if (data[0].resultado) {
                         $("#nombreFestivalEditar").val(data[1].nombre)
+                        $("#descripcionFestivalEdit").val(data[1].descripcion)
                         $(".imagenActual").html(`Imagen Actual: <img src="../uploads/img/${data[1].imagen}" alt="Imagen festival" width="30rem" height="30rem">`)
                         $(".modal__container form").show();
                         $(".modal__loader").hide();
@@ -168,11 +172,13 @@ $(document).ready(() => {
             e.preventDefault();
             let fichero = $("#imagenFestivalEditar")[0].files[0];
             let nombreFestival = $("#nombreFestivalEditar").val();
+            let descripcionFestival = $("#descripcionFestivalEdit").val();
             let datos = new FormData();
 
             datos.append('imagenEdit', fichero);
             datos.append('nombreFestivalEdit', nombreFestival);
             datos.append('id', idSeleccionado);
+            datos.append('descripcionFestivalEdit', descripcionFestival);
             $.ajax({
                 url: window.location.pathname + "/editar",
                 method: "POST",
@@ -183,6 +189,7 @@ $(document).ready(() => {
                 success: function (data) {
                     if (data[0].resultado) {
                         $(`#${idSeleccionado}`).find(".nombreFest").html(data[1].nombre);
+                        $(`#${idSeleccionado}`).find(".descFest").html(data[1].descripcion);
                         $(`#${idSeleccionado}`).find("td .imgFest").attr("src", `../uploads/img/${data[1].imagen}`);
                         toastr.options = {
                             "closeButton": true,

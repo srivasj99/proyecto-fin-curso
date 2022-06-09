@@ -27,6 +27,9 @@ class Fiestas
     #[ORM\Column(type: 'string', length: 255)]
     private $imagen;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $descripcion;
+
     public function __construct()
     {
         $this->inscripciones = new ArrayCollection();
@@ -99,6 +102,18 @@ class Fiestas
     public function setImagen(string $imagen): self
     {
         $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(?string $descripcion): self
+    {
+        $this->descripcion = $descripcion;
 
         return $this;
     }
