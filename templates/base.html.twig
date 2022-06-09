@@ -1,117 +1,158 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Fiestas{% endblock %}</title>
-        <link rel="icon" href="{{ asset("img/festival.ico") }}">
-        <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="{{ asset("toastr/toastr.min.css") }}"/>
-        <script src="https://kit.fontawesome.com/3960c79eed.js" crossorigin="anonymous"></script>
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Fiestas
+			{% endblock %}
+		</title>
+		<link
+		rel="icon" href="{{ asset("img/festival.ico") }}">
+		<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="{{ asset("toastr/toastr.min.css") }}"/>
+		<script src="https://kit.fontawesome.com/3960c79eed.js" crossorigin="anonymous"></script>
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        <header class="header">
-            <div class="contenedor-header">
-                <div class="contenedor">
-                    <div class="barra">
-                        <a href="{{ path("index") }}" class="logo"><h1 class="logo__nombre no-margin centrar-texto">Fes<span class="logo__bold">tivales</span></h1></a>
-                        {% if app.user is null %}
-                            <nav class="navegacion">
-                                <a href="{{ path("login") }}" class="navegacion__enlace">Iniciar Sesión</a>
-                                <a href="{{ path("contacto") }}" class="navegacion__enlace">Contacto <i class="fa-solid fa-user-tie"></i></a>
-                            </nav>
-                        {% endif %}
-                        {% if app.user is not null %}
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-                                    <div class="container-fluid">
-                                        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                            <span class="navbar-toggler-icon"></span>
-                                        </button>
-                                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                                            <ul class="navbar-nav">
-                                                <li class="nav-item dropdown">
-                                                    {% if app.user.imagen == null %}
-                                                        <a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            {{ app.user.nombreUsuario }} <img src="{{ asset('img/imagen_usuario.jpeg') }}" alt="imagen usuario" class="img_usuario">
-                                                        </a>
-                                                    {% endif %}
-                                                    {% if app.user.imagen != null %}
-                                                        <a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            {{ app.user.nombreUsuario }} <img src="{{ asset('uploads/img/' ~ app.user.imagen) }}"  alt="imagen usuario" class="img_usuario">
-                                                        </a>
-                                                    {% endif %}
-                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                        <li><a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a></li>
-                                                        <li><a class="dropdown-item navegacion__enlaceBootstrap" href="#">Mis inscripciones</a></li>
-                                                        <li><a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("gestionFestivales") }}">Gestionar festivales</a></li>
-                                                        <li><a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("logout") }}">Cerrar Sesión</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link active text-white navegacion__enlaceBootstrap" aria-current="page" href="{{ path("contacto") }}">Contacto <i class="fa-solid fa-user-tie"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </nav>
-                            {% endif %}
-                            {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
-                                <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-                                    <div class="container-fluid">
-                                        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                            <span class="navbar-toggler-icon"></span>
-                                        </button>
-                                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                                            <ul class="navbar-nav">
-                                                <li class="nav-item dropdown">
-                                                    {% if app.user.imagen == null %}
-                                                        <a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            {{ app.user.nombreUsuario }} <img src="{{ asset('img/imagen_usuario.jpeg') }}" alt="imagen usuario" class="img_usuario">
-                                                        </a>
-                                                    {% endif %}
-                                                    {% if app.user.imagen != null %}
-                                                        <a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            {{ app.user.nombreUsuario }} <img src="{{ asset('uploads/img/' ~ app.user.imagen) }}"  alt="imagen usuario" class="img_usuario">
-                                                        </a>
-                                                    {% endif %}
-                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                        <li><a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a></li>
-                                                        <li><a class="dropdown-item navegacion__enlaceBootstrap" href="#">Mis inscripciones</a></li>
-                                                        <li><a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("logout") }}">Cerrar Sesión</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link active text-white navegacion__enlaceBootstrap" aria-current="page" href="{{ path("contacto") }}">Contacto <i class="fa-solid fa-user-tie"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </nav>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                </div>
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+		<header class="header">
+			<div class="contenedor-header">
+				<div class="contenedor">
+					<div class="barra">
+						<a href="{{ path("index") }}" class="logo">
+							<h1 class="logo__nombre no-margin centrar-texto">Fes<span class="logo__bold">tivales</span>
+							</h1>
+						</a>
+						{% if app.user is null %}
+							<nav class="navegacion">
+								<a href="{{ path("login") }}" class="navegacion__enlace">Iniciar Sesión</a>
+								<a href="{{ path("contacto") }}" class="navegacion__enlace">Contacto
+									<i class="fa-solid fa-user-tie"></i>
+								</a>
+							</nav>
+						{% endif %}
+						{% if app.user is not null %}
+							{% if is_granted('ROLE_ADMIN') %}
+								<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+									<div class="container-fluid">
+										<button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+										<div class="collapse navbar-collapse" id="navbarNavDropdown">
+											<ul class="navbar-nav">
+												<li class="nav-item dropdown">
+													{% if app.user.imagen == null %}
+														<a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															{{ app.user.nombreUsuario }}
+															<img src="{{ asset('img/imagen_usuario.jpeg') }}" alt="imagen usuario" class="img_usuario">
+														</a>
+													{% endif %}
+													{% if app.user.imagen != null %}
+														<a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															{{ app.user.nombreUsuario }}
+															<img src="{{ asset('uploads/img/' ~ app.user.imagen) }}" alt="imagen usuario" class="img_usuario">
+														</a>
+													{% endif %}
+													<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+														<li>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a>
+														</li>
+														<li>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Mis inscripciones</a>
+														</li>
+														<li>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("gestionFestivales") }}">Gestionar festivales</a>
+														</li>
+														<li>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("logout") }}">Cerrar Sesión</a>
+														</li>
+													</ul>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link active text-white navegacion__enlaceBootstrap" aria-current="page" href="{{ path("contacto") }}">Contacto
+														<i class="fa-solid fa-user-tie"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+							{% endif %}
+							{% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+								<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+									<div class="container-fluid">
+										<button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+										<div class="collapse navbar-collapse" id="navbarNavDropdown">
+											<ul class="navbar-nav">
+												<li class="nav-item dropdown">
+													{% if app.user.imagen == null %}
+														<a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															{{ app.user.nombreUsuario }}
+															<img src="{{ asset('img/imagen_usuario.jpeg') }}" alt="imagen usuario" class="img_usuario">
+														</a>
+													{% endif %}
+													{% if app.user.imagen != null %}
+														<a class="nav-link dropdown-toggle text-white navegacion__enlaceBootstrap" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															{{ app.user.nombreUsuario }}
+															<img src="{{ asset('uploads/img/' ~ app.user.imagen) }}" alt="imagen usuario" class="img_usuario">
+														</a>
+													{% endif %}
+													<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+														<li>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a>
+														</li>
+														<li>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Mis inscripciones</a>
+														</li>
+														<li>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("logout") }}">Cerrar Sesión</a>
+														</li>
+													</ul>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link active text-white navegacion__enlaceBootstrap" aria-current="page" href="{{ path("contacto") }}">Contacto
+														<i class="fa-solid fa-user-tie"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+							{% endif %}
+						{% endif %}
+					</div>
+				</div>
 
-                <div class="header__texto">
-                    <h2 class="no-margin">Los mejores festivales de tu vida</h2>
-                    <p class="no-margin">Inscribete y pasatelo bien</p>
-                </div>
-            </div>
-        </header>
-        <div class="contenedor contenido-principal">
-            {% block body %}{% endblock %}
-        <div>
-            <script src="{{ asset("jquery/jquery.js") }}"></script>
-            <script src="{{ asset("toastr/toastr.min.js") }}"></script>
-    </body>
+				<div class="header__texto">
+					<h2 class="no-margin">Los mejores festivales de tu vida</h2>
+					<p class="no-margin">Inscribete y pasatelo bien</p>
+				</div>
+			</div>
+		</header>
+		<div class="contenedor contenido-principal">
+			{% block body %}
+			{% endblock %}
+		</div>
+		<footer class="footer">
+			<div class="contenedor">
+				<div class="barra">
+					<a href="index.html" class="logo">
+						<h1 class="logo__nombre no-margin centrar-texto">Fes<span class="logo__bold">tivales</span></h1>
+					</a>
+				</div>
+			</div>
+		</footer>
+			<script src="{{ asset("jquery/jquery.js") }}"></script>
+			<script src="{{ asset("toastr/toastr.min.js") }}"></script>
+	</body>
 </html>

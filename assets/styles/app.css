@@ -271,6 +271,12 @@ li{
 }
 /** Footer **/
 
+.footer{
+    background-color: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+    width: 100%;
+}
 
 /** Gestion festivales **/
 .config_festivales{
@@ -360,4 +366,9 @@ li{
 }
 i{
     pointer-events: none;
+}
+
+/** CONTENIDO FESTIVALES **/
+.contenedor--festivales{
+    margin-bottom: 1rem;
 }
