@@ -3,19 +3,28 @@ $(document).ready(() => {
     borrar()
     const openModal = $(".openModal");
     const openModalEditar = $(".openModalEditar");
+    openModalInscripcion = $("#openModalInscripcion");
+    const modalInscripcion = $(".modalInscripcion");
     const modal = $('.modal');
     const modalEdit = $('.modalEditar');
     const closeModal = $('.modal__close');
     let idSeleccionado = "";
+
     openModal.on("click", (e) => {
         e.preventDefault();
         modal.addClass('modal--show');
+    })
+
+    openModalInscripcion.on("click", (e) => {
+        e.preventDefault();
+        modalInscripcion.addClass('modal--show')
     })
 
     closeModal.on("click", (e) => {
         e.preventDefault();
         modal.removeClass('modal--show');
         modalEdit.removeClass('modal--show--editar');
+        modalInscripcion.removeClass('modal--show')
     })
 
     /** INSERTAR FESTIVALES **/
@@ -301,4 +310,8 @@ $(document).ready(() => {
             })
         })
     }
+
+    /** MODAL INSCRIPCION **/
+
+
 })

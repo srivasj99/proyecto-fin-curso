@@ -10,9 +10,9 @@
                     <div class="card carta--festival" style="width: 25rem;">
                         <img src="{{ asset('uploads/img/' ~ f.imagen) }}" class="card-img-top carta__img" alt="Imagen festival">
                         <div class="card-body">
-                            <h4 class="card-title centrar-texto">{{f.nombre}}</h4>
+                            <h4 class="card-title centrar-texto" id="tituloFest">{{f.nombre}}</h4>
                             <p class="card-text">{{f.descripcion | length > 50 ? f.descripcion |slice(0, 50) ~ '...' : f.descripcion}}</p>
-                            <a href="" class="boton boton--primario boton--ver--festival">Ver</a>
+                            <a href="{{ path("festival", {id: f.id})}}" class="boton boton--primario boton--ver--festival">Ver</a>
                         </div>
                     </div>
                 </div>

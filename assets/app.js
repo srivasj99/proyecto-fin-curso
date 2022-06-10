@@ -14,3 +14,4 @@ import './styles/normalize.css';
 import './bootstrap';
 import './validacion-registro';
 import './modal';
+import './inscribirse';
