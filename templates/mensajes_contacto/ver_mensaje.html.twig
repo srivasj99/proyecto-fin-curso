@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mensajes contacto{% endblock %}
+
+{% block body %}
+    <main class="mensajes-contacto">
+        <h3 class="centrar-texto">Mensaje de {{ mensaje.usuario.nombreUsuario }}</h3>
+        <div class="mensajes">
+            <p class="centrar-texto"><b>Mensaje: </b>{{ mensaje.descripcion }}</p>
+            
+        </div>
+    </main>
+{% endblock %}

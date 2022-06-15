@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mensajes contacto{% endblock %}
+
+{% block body %}
+    <main class="mensajes-contacto">
+        <h3 class="centrar-texto">Mensajes contacto</h3>
+        <div class="mensajes">
+            <table class="table" id="tablaMensajes">
+                <thead>
+                    <tr>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mensaje</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for m in mensajes %}
+                    <tr>
+                        <th scope="row">{{ m.usuario.nombreUsuario }}</th>
+                        <td>{{ m.usuario.email }}</td>
+                        <td>{{ m.descripcion | length > 10 ? m.descripcion |slice(0, 10) ~ '...' : m.descripcion}}</td>
+                        <td><a href="{{ path("verMensaje", {id: m.id}) }}" class="ver-mensaje"><i class="fa-solid fa-eye"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}

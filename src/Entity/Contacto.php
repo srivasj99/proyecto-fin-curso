@@ -16,7 +16,7 @@ class Contacto
     #[ORM\Column(type: 'string', length: 255)]
     private $descripcion;
 
-    #[ORM\ManyToOne(targetEntity: usuario::class, inversedBy: 'contactos')]
+    #[ORM\ManyToOne(targetEntity: Usuario::class, inversedBy: 'contactos')]
     #[ORM\JoinColumn(nullable: false, unique: false)]
     private $usuario;
 

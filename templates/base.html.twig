@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Fiestas
+			{% block title %}Festivales
 			{% endblock %}
 		</title>
 		<link
@@ -63,7 +63,7 @@
 													{% endif %}
 													<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 														<li>
-															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("mensajes_contacto") }}">Mensajes contacto</a>
 														</li>
 														<li>
 															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("misInscripciones") }}">Mis suscripciones</a>
@@ -108,9 +108,6 @@
 														</a>
 													{% endif %}
 													<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-														<li>
-															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a>
-														</li>
 														<li>
 															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("misInscripciones") }}">Mis suscripciones</a>
 														</li>
