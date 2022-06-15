@@ -26,10 +26,10 @@ class Inscripciones
         return $this->id;
     }
 
-    public function getUsuario(): ?usuario
+    /*public function getUsuario(): ?usuario
     {
         return $this->usuario;
-    }
+    }*/
 
     public function setUsuario(?usuario $usuario): self
     {
@@ -49,4 +49,5 @@ class Inscripciones
 
         return $this;
     }
+    
 }

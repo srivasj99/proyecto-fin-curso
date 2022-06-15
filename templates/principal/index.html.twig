@@ -1,23 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<main class="festivales">
-		<h3 class="centrar-texto">Festivales</h3>
-		<div class="contenedor--festivales">
-            <div class="row d-flex justify-content-center">
-            {% for f in festival %}
-                <div class="col-8 col-md-6 col-lg-4">
-                    <div class="card carta--festival" style="width: 25rem;">
-                        <img src="{{ asset('uploads/img/' ~ f.imagen) }}" class="card-img-top carta__img" alt="Imagen festival">
-                        <div class="card-body">
-                            <h4 class="card-title centrar-texto" id="tituloFest">{{f.nombre}}</h4>
-                            <p class="card-text">{{f.descripcion | length > 50 ? f.descripcion |slice(0, 50) ~ '...' : f.descripcion}}</p>
-                            <a href="{{ path("festival", {id: f.id})}}" class="boton boton--primario boton--ver--festival">Ver</a>
+    <main class="festivales">
+        <h3 class="centrar-texto">Festivales</h3>
+        <div class="contenedor--festivales">
+            {% if not festival %}
+                <p class="centrar-texto">Aun no hay festivales, hay que esperar :P</p>
+            {% else %}
+                <div class="row d-flex justify-content-center">
+                    {% for f in festival %}
+                        <div class="col-8 col-md-6 col-lg-4">
+                            <div class="card carta--festival" style="width: 25rem;">
+                                <img src="{{ asset('uploads/img/' ~ f.imagen) }}" class="card-img-top carta__img" alt="Imagen festival">
+                                <div class="card-body">
+                                    <h4 class="card-title centrar-texto" id="tituloFest">{{f.nombre}}</h4>
+                                    <p class="card-text">{{f.descripcion | length > 50 ? f.descripcion |slice(0, 50) ~ '...' : f.descripcion}}</p>
+                                    <a href="{{ path("festival", {id: f.id})}}" class="boton boton--primario boton--ver--festival">Ver</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
-		</div>
-	</main>
+            {% endif %}
+        </div>
+    </main>
 {% endblock body %}

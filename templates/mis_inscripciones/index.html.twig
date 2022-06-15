@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mis inscripciones{% endblock %}
+
+{% block body %}
+    {% if app.user %}
+        <main class="misInscripciones">
+            <h3 class="centrar-texto">Mis Suscripciones</h3>
+            <div class="inscripciones">
+                <table class="table" id="tablaInscripciones">
+                    <thead>
+                        <tr>
+                            <th scope="col">Festival</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Desuscribirse</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inscripciones-festivales">
+                    </tbody>
+                </table>
+            </div>
+            <img src="{{ asset("img/loader.gif") }}" class="inscripcion_loader"  width="150rem" height="150rem">
+        </main>
+    {% else %}
+        <main class="misInscripciones">
+            <div class="inscripcionesRestringido">
+                <h3 class="centrar-texto">Mis Inscripciones</h3>
+                <p class="modal__paragraph">Si quieres ver tus suscripciones necesitas iniciar sesión</p>
+                <a href="{{ path("login") }}" class="boton boton--primario">Iniciar sesión <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            </div>
+        </main>
+    {% endif %}
+{% endblock %}

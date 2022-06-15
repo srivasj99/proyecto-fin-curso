@@ -9,7 +9,7 @@ $(document).ready(() => {
             success: function (data) {
                 if(data.resultado){
                     $(".contenedor-festival").find("#btn-inscribirse").remove();
-                    $(".contenedor-festival").append(`<a class="boton boton--secundario" id="inscrito">Ya estas inscrito <i class="fa-solid fa-circle-check"></i></a>`)
+                    $(".contenedor-festival").append(`<a class="boton boton--secundario" id="inscrito">Ya estas suscrito <i class="fa-solid fa-circle-check"></i></a>`)
                 }
             },
         })

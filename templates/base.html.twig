@@ -66,7 +66,7 @@
 															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a>
 														</li>
 														<li>
-															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Mis inscripciones</a>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("misInscripciones") }}">Mis suscripciones</a>
 														</li>
 														<li>
 															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("gestionFestivales") }}">Gestionar festivales</a>
@@ -112,7 +112,7 @@
 															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Cambiar la contraseña</a>
 														</li>
 														<li>
-															<a class="dropdown-item navegacion__enlaceBootstrap" href="#">Mis inscripciones</a>
+															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("misInscripciones") }}">Mis suscripciones</a>
 														</li>
 														<li>
 															<a class="dropdown-item navegacion__enlaceBootstrap" href="{{ path("logout") }}">Cerrar Sesión</a>
@@ -146,7 +146,7 @@
 		<footer class="footer">
 			<div class="contenedor">
 				<div class="barra">
-					<a href="index.html" class="logo">
+					<a href="{{ path("index") }}" class="logo">
 						<h1 class="logo__nombre no-margin centrar-texto">Fes<span class="logo__bold">tivales</span></h1>
 					</a>
 				</div>

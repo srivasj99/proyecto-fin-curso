@@ -75,4 +75,15 @@ class InscripcionesRepository extends ServiceEntityRepository
         ;
     }
     */
+    
+    
+    public function obtenerInscripcion($value): ?Inscripciones
+    {
+        return $this->createQueryBuilder('i')
+            ->andWhere('i.usuario = :usuario')
+            ->setParameter('usuario', $value)
+            ->getQuery()
+            ->getResult();
+        ;
+    }
 }

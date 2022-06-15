@@ -445,3 +445,16 @@ i{
     width: 50%;
     margin: 2rem auto;
 }
+
+
+.inscripcion_loader{
+    display: block;
+    margin: 0 auto;
+}
+
+.inscripcionesRestringido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

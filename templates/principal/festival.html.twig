@@ -14,12 +14,12 @@
             </div>
             {% if app.user %}
                 {% if respuesta == "no inscrito" %}
-                    <a class="boton boton--primario" id="btn-inscribirse" data-id="{{festival.id}}">Inscribirse <i class="fa-solid fa-circle-plus"></i></a>
+                    <a class="boton boton--primario" id="btn-inscribirse" data-id="{{festival.id}}">Suscribirse <i class="fa-solid fa-circle-plus"></i></a>
                 {% else %}
-                    <a class="boton boton--secundario" id="inscrito">Ya estas inscrito <i class="fa-solid fa-circle-check"></i></a>
+                    <a class="boton boton--secundario" id="inscrito">Ya estas suscrito <i class="fa-solid fa-circle-check"></i></a>
                 {% endif %}
             {% else %}
-                <a class="boton boton--primario" id="openModalInscripcion">Inscribirse <i class="fa-solid fa-circle-plus"></i></a>
+                <a class="boton boton--primario" id="openModalInscripcion">Suscribirse <i class="fa-solid fa-circle-plus"></i></a>
             {% endif %}
         </div>
 	</main>
@@ -29,8 +29,8 @@
             <img src="{{ asset("img/img_login.png") }}" class="modal__img">
             <h2 class="modal__title">Logueate</h2>
             <a class="modal__close"><i class="fa-solid fa-xmark"></i><a>
-            <p class="modal__paragraph">Si quieres inscribirte necesitas loguearte primero.</p>
-            <a href="{{ path("registro") }}" class="boton boton--primario">Registrate</i></a>
+            <p class="modal__paragraph">Si quieres suscribirte necesitas loguearte primero.</p>
+            <a href="{{ path("registro") }}" class="boton boton--primario">Registrate</a>
         </div>
     </section>
 {% endblock body %}

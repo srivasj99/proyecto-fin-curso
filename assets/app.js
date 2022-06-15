@@ -15,3 +15,4 @@ import './bootstrap';
 import './validacion-registro';
 import './modal';
 import './inscribirse';
+import './misInscripciones';
